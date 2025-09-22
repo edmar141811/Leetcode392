@@ -1,0 +1,63 @@
+/*
+Given two strings s and t, return true if s is a subsequence of t, or false otherwise.
+
+A subsequence of a string is a new string that is formed from the original string by deleting some 
+(can be none) of the characters without disturbing the relative positions of the remaining characters. 
+(i.e., "ace" is a subsequence of "abcde" while "aec" is not).
+
+Runtime 0 ms
+Beats 100.00%
+
+Memory 7.77MB
+Beats 99.99%
+
+I think the runtime might be a little wrong, but the memory usage seems good
+might try to improve Big O
+*/
+
+class Solution {
+public:
+    bool isSubsequence(string s, string t) {
+      //main initializing and declaration of variables
+        int maxTLen = t.length();
+        int maxSLen = s.length();
+        int reducedCount=0;// to not traverse full T list everytime
+        int countT=0;
+        int countS=0;
+        char temp;
+        bool letterFound=false;
+        bool wordFound=false;
+        //if either string is 0, then skip
+        if(maxSLen>0 && maxTLen>0){
+            //to traverse all of string s
+            while(countS < maxSLen){
+                temp = s[countS];
+                countT = reducedCount;
+                //for each char in s compare to string t
+                while(countT < maxTLen){
+                    if(temp == t[countT]){
+                        reducedCount=countT+1;
+                        letterFound=true;
+                        cout << reducedCount <<"\n";
+                        break;
+                    }
+                    countT++;
+                }
+                if(letterFound==false){
+                    break;
+                }
+                else if(countS+1==maxSLen){
+                    wordFound=true;
+                }
+                countT=0;
+                countS++;
+                letterFound=false;
+            }
+        }
+        else if(maxTLen>0) wordFound=true;
+        else if(maxSLen>0) wordFound=false;
+        else wordFound=true;
+        return wordFound;
+    }
+};
+
