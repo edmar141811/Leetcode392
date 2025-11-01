@@ -5,12 +5,12 @@ A subsequence of a string is a new string that is formed from the original strin
 (can be none) of the characters without disturbing the relative positions of the remaining characters. 
 (i.e., "ace" is a subsequence of "abcde" while "aec" is not).
 
-Runtime 0 ms
-Beats 100.00%
+Example 1:
 
-While this might be the stated runtime, considering that the Big O is n^2 it is still slow even if memory usage is good
+Input: s = "abc", t = "ahbgdc"
+Output: true
+Example 2:
 
-Memory 7.77MB
-Beats 99.99%
-
-This kind of usage would mainly be useful for code that needs to be run a minimal times and with string that are average to smaller sizes
+Input: s = "axc", t = "ahbgdc"
+Output: false
+ 
